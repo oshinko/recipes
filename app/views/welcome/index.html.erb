@@ -1,8 +1,11 @@
-<h1>Hello, Rails!</h1>
-<%= link_to 'All Recipes', controller: 'articles' %>
+<main>
+  <button onclick="pick()">今日のレシピをピック！</button>
+</main>
 
-<% if logged_in? %>
-<%= link_to 'ログアウト', logout_path %>
-<% else %>
-<a href="/auth/twitter">ログイン</a>
-<% end %>
+<script>
+function pick() {
+  window.location.href = '/pick';
+}
+</script>
+
+<%= render 'layouts/footer' %>

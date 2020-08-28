@@ -1,3 +1,23 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+button {
+  display: block;
+  margin: auto;
+  width: 50%;
+  height: 8rem;
+  min-width: max-content;
+  min-height: max-content;
+  text-decoration: none;
+  color: #2dafff;
+  border: solid .1rem #67c5ff;
+  border-radius: 1rem;
+  background: inherit;
+  transition: .4s;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #67c5ff;
+  color: white;
+}

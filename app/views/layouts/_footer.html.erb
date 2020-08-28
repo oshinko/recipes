@@ -1,0 +1,21 @@
+<footer>
+  <nav>
+    <ul>
+      <li>
+        <%= link_to 'ホーム', root_path %>
+      </li>
+      <% if logged_in? %>
+      <li>
+        <%= link_to 'レシピを登録', new_article_path %>
+      </li>
+      <% end %>
+      <li>
+        <% if logged_in? %>
+        <%= link_to 'ログアウト', logout_path %>
+        <% else %>
+        <a href="/auth/twitter">ログイン</a>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+</footer>

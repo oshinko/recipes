@@ -1,0 +1,133 @@
+<div class="foods">
+  <div class="ramen">
+    <div class="donburi"></div>
+    <div class="donburi-gu"></div>
+    <div class="donburi-soko"></div>
+  </div>
+</div>
+
+<script>
+document.querySelector('.ramen').addEventListener('animationend', function() {
+  this.style.visibility = 'hidden';
+  window.location.href = '<%= article_path(@picked) %>';
+});
+</script>
+
+<style>
+:root {
+  --donburi: #CCC;
+  --donburi-gu: brown;
+}
+.donburi {
+  width: 80px;
+  height: 40px;
+  border-radius: 0 0 40px 40px;
+  background: var(--donburi);
+}
+.donburi-gu {
+  width: 80px;
+  height: 80px;
+  transform: rotateX(75deg);
+  border-radius: 50%;
+  background: var(--donburi-gu);
+}
+.donburi-soko {
+  width: 20px;
+  height: 10px;
+  border-radius: 25%;
+  background: var(--donburi);
+}
+.foods {
+  position: relative;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+.foods .ramen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  width: 80px;
+  height: 68px;
+  animation: donburi 2.75s linear;
+  animation-iteration-count: 1;
+  transform-origin: 50% 100% 0;
+}
+.foods .ramen .donburi {
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+.foods .ramen .donburi-gu {
+  position: absolute;
+  top: -20px;
+  left: 0;
+}
+.foods .ramen .donburi-soko {
+  position: absolute;
+  bottom: 0;
+  left: 30px;
+}
+@keyframes donburi {
+  15% {
+    transform: translate(0px, 0px);
+  }
+  18% {
+    transform: translate(0px, 16px);
+  }
+  21% {
+    transform: translate(0px, -5px);
+  }
+  24% {
+    transform: translate(0px, 0px);
+  }
+  30% {
+    transform: translate(0px, 0px);
+  }
+  33% {
+    transform: translate(0px, 16px);
+  }
+  36% {
+    transform: translate(0px, -5px);
+  }
+  39% {
+    transform: translate(0px, 0px);
+  }
+  45% {
+    transform: translate(0px, 0px);
+  }
+  50% {
+    transform: rotateZ(5deg);
+  }
+  55% {
+    transform: rotateZ(-5deg);
+  }
+  60% {
+    transform: rotateZ(5deg);
+  }
+  65% {
+    transform: rotateZ(-5deg);
+  }
+  70% {
+    transform: rotateZ(5deg);
+  }
+  75% {
+    transform: rotateZ(-5deg);
+  }
+  80% {
+    transform: rotateZ(5deg);
+  }
+  85% {
+    transform: rotateZ(-5deg);
+  }
+  90% {
+    transform: rotateZ(0deg);
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+</style>
