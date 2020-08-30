@@ -22,4 +22,9 @@ test:
 
 production:
   <<: *default
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  host: <%= Rails.application.credentials.databases[:production][:host] %>
+  database: <%= Rails.application.credentials.databases[:production][:database] %>
+  username: <%= Rails.application.credentials.databases[:production][:username] %>
+  password: <%= Rails.application.credentials.databases[:production][:password] %>
