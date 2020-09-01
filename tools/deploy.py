@@ -17,12 +17,13 @@ parser.add_argument('--rails-master-key', required=True)
 
 args = parser.parse_args()
 
-subprocess.run(f'sh {BUILD_IMAGE_SCRIPT}', shell=True, check=True)
+subprocess.run(f'sh {BUILD_IMAGE_SCRIPT} {args.rails_master_key}', shell=True,
+               check=True)
 
 subprocess.run(f'sh {PUSH_IMAGE_SCRIPT} {args.aws_region} {args.aws_ecr_repo}',
                shell=True, check=True)
 
-client = boto3.client('ecs')
+client = boto3.client('ecs', region_name=args.aws_region)
 
 resp = client.register_task_definition(
     family='recipicker',
