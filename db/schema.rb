@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_11_112417) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 2020_08_30_165245) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -25,10 +22,19 @@ ActiveRecord::Schema.define(version: 2020_08_11_112417) do
   create_table "comments", force: :cascade do |t|
     t.string "commenter"
     t.text "body"
-    t.bigint "article_id", null: false
+    t.integer "article_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_comments_on_article_id"
+  end
+
+  create_table "recipes", force: :cascade do |t|
+    t.string "title"
+    t.text "text"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_recipes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -38,7 +44,10 @@ ActiveRecord::Schema.define(version: 2020_08_11_112417) do
     t.string "image"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["nickname"], name: "index_users_on_nickname", unique: true
+    t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
   add_foreign_key "comments", "articles"
+  add_foreign_key "recipes", "users"
 end

@@ -34,5 +34,17 @@ main {
 }
 
 main h1 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+}
+
+main h2 {
+  font-size: 1.4rem;
+}
+
+main h2 {
+  font-size: 1.4rem;
+}
+
+main h3, section h1 {
+  font-size: 1.2rem;
 }

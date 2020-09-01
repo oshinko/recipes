@@ -1,0 +1,15 @@
+// Place all the styles related to the Recipes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+input[type=text]{
+  width: 32rem;
+}
+
+textarea {
+  width: 32rem;
+  height: 8rem;
+}
+
+.flow {
+  white-space: pre-wrap;
+}

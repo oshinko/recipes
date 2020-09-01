@@ -1,0 +1,22 @@
+<main>
+  <h1><%= @user.nickname %></h1>
+  <img src="<%= @user.image %>" />
+
+  <h2>Recipes</h2>
+  <% if @user == current_user %>
+  <p><%= link_to '新しいレシピを登録', new_recipe_path %></p>
+  <% end %>
+  <ul>
+    <% @user.recipes.each do |recipe| %>
+    <li>
+      <%= recipe.title %>
+      <% if @user == current_user %>
+      [<%= link_to '編集', edit_recipe_path(recipe) %> |
+       <%= link_to '削除', recipe_path(recipe), method: :delete, data: { confirm: '本当に削除してもいいですか？' } %>]
+      <% end %>
+    </li>
+    <% end %>
+  </ul>
+</main>
+
+<%= render 'layouts/footer' %>

@@ -9,7 +9,7 @@
 <script>
 document.querySelector('.ramen').addEventListener('animationend', function() {
   this.style.visibility = 'hidden';
-  window.location.href = '<%= article_path(@picked) %>';
+  window.location.href = '<%= recipe_path(@picked) %>';
 });
 </script>
 

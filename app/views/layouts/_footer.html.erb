@@ -6,7 +6,7 @@
       </li>
       <% if logged_in? %>
       <li>
-        <%= link_to 'レシピを登録', new_article_path %>
+        <%= link_to 'マイページ', user_path(current_user) %>
       </li>
       <% end %>
       <li>
