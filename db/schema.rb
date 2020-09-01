@@ -12,22 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2020_08_30_165245) do
 
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.text "text"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "comments", force: :cascade do |t|
-    t.string "commenter"
-    t.text "body"
-    t.integer "article_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["article_id"], name: "index_comments_on_article_id"
-  end
-
   create_table "recipes", force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -48,6 +32,5 @@ ActiveRecord::Schema.define(version: 2020_08_30_165245) do
     t.index ["uid"], name: "index_users_on_uid", unique: true
   end
 
-  add_foreign_key "comments", "articles"
   add_foreign_key "recipes", "users"
 end
