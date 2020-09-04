@@ -1,2 +1,3 @@
 <h1><%= @recipe.title %></h1>
-<p class="flow"><%= @recipe.text %></p>
+<article id="flow"></article>
+<script>const RECIPES = [{ el: '#flow', text: `<%= @recipe.text %>` }]</script>
