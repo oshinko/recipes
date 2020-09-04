@@ -4,7 +4,7 @@
     <%
       title = content_for?(:title) ? yield(:title) : 'Recipicker'
       description = content_for?(:description) ? yield(:description) : '今日のレシピをランダムピック！'
-      image = request.base_url + (content_for?(:image) ? yield(:image) : '/assets/icon.png')
+      image = request.base_url + image_path(content_for?(:image) ? yield(:image) : 'icon.png')
     %>
     <title><%= title %></title>
     <%= csrf_meta_tags %>
