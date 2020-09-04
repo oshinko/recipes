@@ -1,11 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Recipicker</title>
+    <%
+      title = content_for?(:title) ? yield(:title) : 'Recipicker'
+      description = content_for?(:description) ? yield(:description) : '今日のレシピをランダムピック！'
+      image = request.base_url + (content_for?(:image) ? yield(:image) : '/assets/icon.png')
+    %>
+    <title><%= title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <meta name="description" content="Recipe picker">
+    <meta name="description" content="<%= description %>">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@Osynco">
+    <meta name="twitter:site" content="@Osynco">
+    <meta property="og:url" content="<%= request.original_url %>">
+    <meta property="og:title" content="<%= title %>">
+    <meta property="og:description" content="<%= description %>" />
+    <meta property="og:image" content="<%= image %>">
     <%= favicon_link_tag('favicon.ico') %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
