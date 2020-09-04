@@ -9,3 +9,14 @@ textarea {
   width: 32rem;
   height: 8rem;
 }
+
+#flow {
+  ul, ol {
+    padding-inline-start: 1.25rem;
+    padding-inline-end: 1.25rem;
+  }
+  > ul, > ol {
+    padding-inline-start: 2rem;
+    padding-inline-end: 2rem;
+  }
+}
