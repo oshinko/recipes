@@ -9,9 +9,11 @@ COPY Gemfile /app/Gemfile
 COPY Gemfile.lock /app/Gemfile.lock
 RUN bundle install
 COPY . /app
-RUN yarn install --check-files
+ARG RAILS_ENV
 ARG RAILS_MASTER_KEY
-RUN test -n "$RAILS_MASTER_KEY"
-RUN bundle exec rails assets:precompile RAILS_ENV=production RAILS_MASTER_KEY=$RAILS_MASTER_KEY
-RUN bundle exec rails db:migrate RAILS_ENV=production
+RUN test -n "$RAILS_ENV" && test -n "$RAILS_MASTER_KEY" && \
+  bundle exec rails assets:precompile RAILS_ENV=$RAILS_ENV RAILS_MASTER_KEY=$RAILS_MASTER_KEY && \
+  yarn cache clean && \
+  yarn install --check-files && \
+  bundle exec rails db:migrate RAILS_ENV=$RAILS_ENV
 CMD bundle exec puma

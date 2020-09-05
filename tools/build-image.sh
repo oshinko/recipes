@@ -1,1 +1,2 @@
-docker build -t recipicker:latest --build-arg RAILS_MASTER_KEY=$1 `dirname $0`/..
+cd `dirname $0`/..
+RAILS_ENV=production RAILS_MASTER_KEY=$1 docker-compose build
